@@ -1,0 +1,30 @@
+#include "pt4.h"
+#include "fstream"
+#include "math.h"
+#include "iostream"
+using namespace std;
+double dist(double x1, double y1, double x2, double y2)
+{
+    double size;
+    size = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    if (size > 0) return size;
+    else return -size;
+}
+void Solve()
+{
+    Task("TheTri1");
+    int n, i = 0;
+    double x1, x2, y1, y2, max, d1, d2 = 0;
+    fstream f;
+    f.open("a.otr");
+    f >> n;
+    while (!f.eof()) {
+        i++;
+        f >> x1 >> y1 >> x2 >> y2;
+        d1 = dist(x1, y1, x2, y2);
+        if (d1 > d2) {
+            d2 = d1;
+            max = d2;
+        }if (i == n)break;
+    }pt << max;
+}
