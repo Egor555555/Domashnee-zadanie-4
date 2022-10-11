@@ -1,0 +1,21 @@
+#include "pt4.h"
+#include "cmath"
+using namespace std;
+int perevod(int x, int p) {
+    int t, i = 0, itog = 0;
+    while (x) {
+        t = (x % 10) * pow(p, i);
+        x /= 10;
+        itog += t;
+        i++;
+    }
+    return itog;
+}
+void Solve()
+{
+    Task("TheTri13");
+    int x, p;
+    pt >> x >> p;
+    pt << perevod(x, p);
+
+}
