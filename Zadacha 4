@@ -1,0 +1,28 @@
+#include "pt4.h"
+using namespace std;
+
+void Solve()
+{
+    Task("Minmax22");
+    int n, i;
+    float min1, min2, r;
+    pt >> n;
+    for (i = 1; i <= n; ++i) {
+        pt >> r;
+        if (i == 1) {
+            min1 = r;
+            min2 = r;
+        }
+        if ((r < min2) && (r != min1)) {
+            if (r < min1) {
+                min2 = min1;
+                min1 = r;
+            }
+            else min2 = r;
+        }
+
+        if (min1 == min2) min2 = r;
+
+    }
+    pt << min1 << min2;
+}
