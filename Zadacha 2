@@ -1,0 +1,53 @@
+#include "pt4.h"
+#include "math.h"
+#include "iostream"
+#include "fstream"
+using namespace std;
+int palindroma3(int i) {
+    int n = 0,t;
+    t = pow(i, 3);
+    while (t)
+    {
+        n = 10 * n + t % 10;
+        t /= 10;
+    }
+    return n;
+}int palindroma4(int i) {
+    int p = 0,h;
+    h = pow(i, 4);
+    while (h)
+    {
+        p = 10 * p + h % 10;
+        h /= 10;
+    }
+    return p;
+}int palindroma5(int i) {
+    int g = 0,j;
+    j = pow(i, 5);
+    while (j)
+    {
+        g = 10 * g + j % 10;
+        j /= 10;
+    }
+    return g;
+}
+
+void Solve()
+{
+    Task("TheTri10");
+    int a, b, k = 0, z,c,d,e,x,y;
+    pt >> a >> b;
+    for (int i = a; i <= b; i++) {
+        z = palindroma3(i);
+        x = palindroma4(i);
+        y = palindroma5(i);
+        c = pow(i, 3);
+        d = pow(i, 4);
+        e = pow(i, 5);
+        if (z == c || x==d || y==e) {
+            k++;
+            pt << i;
+        }
+    }
+    if (k == 0) pt << "No solution";
+}
